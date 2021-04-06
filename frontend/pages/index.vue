@@ -3,32 +3,31 @@
     <div>
       <Logo />
       <h1 class="title">
-        app
+        Zenn-app
       </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+      <h2 class="subtitle">
+        {{ subTitle }}
+      </h2>
+      <button @click="getSomething">
+        Get Task List !!
+      </button>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      subTitle: 'Zenn is good service!!'
+    }
+  },
+  methods: {
+    getSomething() {
+      alert("Get Something!!")
+    }
+  },
+}
 </script>
 
 <style>
