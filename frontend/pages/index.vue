@@ -11,6 +11,9 @@
       <button @click="getSomething">
         Get Task List !!
       </button>
+      <ul v-for="task in tasks" :key="task.id">
+        <li style="text-aligh: left;">{{ task.title }}</li>
+      </ul>
     </div>
   </div>
 </template>
@@ -19,12 +22,14 @@
 export default {
   data() {
     return {
-      subTitle: 'Zenn is good service!!'
+      subTitle: 'Zenn is good service!!',
+      tasks: [],
     }
   },
   methods: {
-    getSomething() {
-      alert("Get Something!!")
+    async getSomething() {
+      const response = await this.$axios.$get('http://localhost:5000/api/v1/tasks')
+      this.tasks = JSON.parse(response.tasks)
     }
   },
 }
