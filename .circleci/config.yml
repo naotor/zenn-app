@@ -6,11 +6,12 @@ jobs:
   build:
     docker:
       - image: circleci/ruby:2.6.3-stretch-node
+    working_directory: ~/repo/
     executor: ruby/default
     steps:
       - checkout
       - run:
-          working_directory: ~/backend
+          working_directory: ~/repo/backend/
           name: Which bundler?
           command: bundle -v
       - ruby/bundle-install
