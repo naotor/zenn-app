@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - run:
-          working_directory: ./backend
+          working_directory: ~/backend
           name: Which bundler?
           command: bundle -v
       - ruby/bundle-install
